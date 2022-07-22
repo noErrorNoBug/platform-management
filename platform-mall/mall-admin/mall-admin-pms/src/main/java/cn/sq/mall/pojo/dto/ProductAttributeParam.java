@@ -1,0 +1,50 @@
+package cn.sq.mall.pojo.dto;
+
+import cn.sq.platform.core.annotations.StatusValidator;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+/**
+ * @author sunqiang
+ * @version 1.0
+ * @description 商品属性参数
+ * @date 2022/7/15 00:48
+ */
+@Data
+@EqualsAndHashCode(callSuper = false)
+public class ProductAttributeParam {
+    @NotNull
+    @ApiModelProperty("属性分类ID")
+    private Long productAttributeCategoryId;
+    @NotBlank
+    @ApiModelProperty("属性名称")
+    private String name;
+    @StatusValidator({"0","1","2"})
+    @ApiModelProperty("属性选择类型：0->唯一；1->单选；2->多选")
+    private Integer selectType;
+    @StatusValidator({"0","1"})
+    @ApiModelProperty("属性录入方式：0->手工录入；1->从列表中选取")
+    private Integer inputType;
+    @ApiModelProperty("可选值列表，以逗号隔开")
+    private String inputList;
+    private Integer sort;
+    @ApiModelProperty("分类筛选样式：0->普通；1->颜色")
+    @StatusValidator({"0","1"})
+    private Integer filterType;
+    @ApiModelProperty("检索类型；0->不需要进行检索；1->关键字检索；2->范围检索")
+    @StatusValidator({"0","1","2"})
+    private Integer searchType;
+    @ApiModelProperty("相同属性产品是否关联；0->不关联；1->关联")
+    @StatusValidator({"0","1"})
+    private Integer relatedStatus;
+    @ApiModelProperty("是否支持手动新增；0->不支持；1->支持")
+    @StatusValidator({"0","1"})
+    private Integer handAddStatus;
+    @ApiModelProperty("属性的类型；0->规格；1->参数")
+    @StatusValidator({"0","1"})
+    private Integer type;
+}

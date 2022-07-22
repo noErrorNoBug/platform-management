@@ -1,0 +1,3 @@
+export JAVA_HOME=/opt/jdk/jdk-18.0.2
+export PATH=$JAVA_HOME/bin:$JAVA_HOME/lib:$PATH
+export CLASSPATH=.:$JAVA_HOME/lib

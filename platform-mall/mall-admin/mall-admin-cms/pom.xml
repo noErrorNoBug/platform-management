@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>platform-mall</artifactId>
+        <groupId>cn.sq</groupId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../../pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>mall-admin-cms</artifactId>
+    <name>mall-admin-cms</name>
+    <description>卖家端内容管理服务</description>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>cn.sq</groupId>
+            <artifactId>platform-loadbalancer-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.sq</groupId>
+            <artifactId>platform-config-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.sq</groupId>
+            <artifactId>platform-db-starter</artifactId>
+        </dependency>
+    </dependencies>
+</project>

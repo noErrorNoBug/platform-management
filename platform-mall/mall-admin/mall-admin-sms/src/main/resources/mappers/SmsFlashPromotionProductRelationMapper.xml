@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.sq.mall.mapper.SmsFlashPromotionProductRelationMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.sq.mall.pojo.entity.SmsFlashPromotionProductRelation">
+        <id column="id" property="id" />
+        <result column="flash_promotion_id" property="flashPromotionId" />
+        <result column="flash_promotion_session_id" property="flashPromotionSessionId" />
+        <result column="product_id" property="productId" />
+        <result column="flash_promotion_price" property="flashPromotionPrice" />
+        <result column="flash_promotion_count" property="flashPromotionCount" />
+        <result column="flash_promotion_limit" property="flashPromotionLimit" />
+        <result column="sort" property="sort" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, flash_promotion_id, flash_promotion_session_id, product_id, flash_promotion_price, flash_promotion_count, flash_promotion_limit, sort
+    </sql>
+
+    <insert id="insertAll">
+        INSERT INTO sms_flash_promotion_product_relation (flash_promotion_id, flash_promotion_session_id, product_id, flash_promotion_price, flash_promotion_count, flash_promotion_limit, sort) VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.flashPromotionId,jdbcType=BIGINT},
+            #{item.flashPromotionSessionId,jdbcType=BIGINT},
+            #{item.productId,jdbcType=BIGINT},
+            #{item.flashPromotionPrice,jdbcType=DECIMAL},
+            #{item.flashPromotionCount,jdbcType=INTEGER},
+            #{item.flashPromotionLimit,jdbcType=INTEGER},
+            #{item.sort,jdbcType=INTEGER})
+        </foreach>
+    </insert>
+</mapper>

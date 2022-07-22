@@ -1,0 +1,5 @@
+server:
+  port: 15100
+spring:
+  application:
+    name: mall-portal-search

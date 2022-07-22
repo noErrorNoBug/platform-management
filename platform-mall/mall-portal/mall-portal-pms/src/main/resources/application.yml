@@ -1,0 +1,5 @@
+server:
+  port: 15200
+spring:
+  application:
+    name: mall-portal-pms

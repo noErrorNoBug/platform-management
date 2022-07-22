@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: mall-admin-cms
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      config:
+        server-addr: 118.126.82.157:8848,121.36.227.215:8848,39.107.59.142:8848
+        namespace: dev
+        group: MALL-ADMIN
+        file-extension: yml
+        prefix: mall-admin-cms
+        extensionConfigs[0]:    ## 注册中心配置
+          dataId: mall-admin-discovery.yml
+          group: MALL-ADMIN
+          refresh: true
+        extensionConfigs[1]:  ## 数据库配置
+          dataId: common-db-mysql.yml
+          group: COMMON
+          refresh: false
+        extensionConfigs[2]:  ## web配置
+          dataId: common-web.yml
+          group: COMMON
+          refresh: false
+
+

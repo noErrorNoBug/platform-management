@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.sq.mall.mapper.OrderReturnApplyDao">
+
+    <resultMap id="returnApplyResultMap" type="cn.sq.mall.pojo.dto.OrderReturnApplyResult" extends="cn.sq.mall.mapper.OmsOrderReturnApplyMapper.BaseResultMap">
+        <association property="companyAddress" resultMap="cn.sq.mall.mapper.OmsCompanyAddressMapper.BaseResultMap" columnPrefix="ca_"/>
+    </resultMap>
+
+    <select id="getItem" resultMap="returnApplyResultMap">
+        SELECT
+        ra.*, ca.id ca_id,
+        ca.address_name ca_address_name,
+        ca.`name` ca_name,
+        ca.phone ca_phone,
+        ca.province ca_province,
+        ca.city ca_city,
+        ca.region ca_region,
+        ca.detail_address ca_detail_address
+        FROM
+        oms_order_return_apply ra
+        LEFT JOIN oms_company_address ca ON ra.company_address_id = ca.id
+        WHERE ra.id=#{id};
+    </select>
+
+</mapper>

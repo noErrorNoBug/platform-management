@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.sq.mall.mapper.FlashPromotionProductRelationDao">
+
+    <resultMap id="flashProductMap" type="cn.sq.mall.pojo.dto.FlashPromotionProduct" extends="cn.sq.mall.mapper.SmsFlashPromotionProductRelationMapper.BaseResultMap">
+        <association property="product" javaType="cn.sq.mall.pojo.entity.PmsProduct" columnPrefix="p_">
+            <id column="id" property="id" />
+            <result column="name" property="name" />
+            <result column="product_sn" property="productSn" />
+            <result column="price" property="price" />
+            <result column="stock" property="stock" />
+        </association>
+
+    </resultMap>
+    <select id="getList" resultMap="flashProductMap">
+        SELECT
+        r.id,
+        r.flash_promotion_price,
+        r.flash_promotion_count,
+        r.flash_promotion_limit,
+        r.flash_promotion_id,
+        r.flash_promotion_session_id,
+        r.product_id,
+        r.sort,
+        p.id p_id,
+        p.`name` p_name,
+        p.product_sn p_product_sn,
+        p.price p_price,
+        p.stock p_stock
+        FROM
+        sms_flash_promotion_product_relation r
+        LEFT JOIN pms_product p ON r.product_id = p.id
+        WHERE
+        r.flash_promotion_id = #{flashPromotionId}
+        AND r.flash_promotion_session_id = #{flashPromotionSessionId}
+        ORDER BY r.sort DESC
+    </select>
+
+</mapper>

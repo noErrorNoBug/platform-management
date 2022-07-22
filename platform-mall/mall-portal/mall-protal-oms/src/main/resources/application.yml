@@ -1,0 +1,5 @@
+server:
+  port: 15500
+spring:
+  application:
+    name: mall-portal-oms

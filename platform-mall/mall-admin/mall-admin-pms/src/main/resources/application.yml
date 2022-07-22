@@ -1,0 +1,5 @@
+server:
+  port: 14300
+spring:
+  application:
+    name: mall-admin-pms

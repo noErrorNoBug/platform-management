@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cn.sq</groupId>
+    <artifactId>platform-parent</artifactId>
+    <name>platform-parent</name>
+    <version>1.0-SNAPSHOT</version>
+    <description>项目开发平台父工程:项目结构管理、依赖管理、版本管理</description>
+    <modules>
+        <module>../platform-common</module>
+        <module>../platform-mybatisplus-generator</module>
+        <module>../platform-mall</module>
+    </modules>
+    <packaging>pom</packaging>
+
+    <properties>
+        <platform.version>1.0-SNAPSHOT</platform.version>
+        <maven.compiler.source>18</maven.compiler.source>
+        <maven.compiler.target>18</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>18</java.version>
+        <spring.boot.version>2.6.4</spring.boot.version>
+        <spring.cloud.version>2021.0.1</spring.cloud.version>
+        <spring.cloud.alibaba.version>2021.0.1.0</spring.cloud.alibaba.version>
+        <mysql.version>8.0.27</mysql.version>
+        <pagehelper.springboot.starter.version>1.4.1</pagehelper.springboot.starter.version>
+        <mybatis.plus.version>3.5.1</mybatis.plus.version>
+        <mybatis.plus.starter.version>3.5.1</mybatis.plus.starter.version>
+        <mybatis.springboot.starter.version>2.2.2</mybatis.springboot.starter.version>
+        <velocity.engine.version>2.3</velocity.engine.version>
+        <log4j.version>1.7.36</log4j.version>
+        <lombok.version>1.18.22</lombok.version>
+        <swagger3.version>3.0.0</swagger3.version>
+        <knife4j.version>3.0.5</knife4j.version>
+        <spring.plugin.version>2.0.0.RELEASE</spring.plugin.version>
+        <guava.version>31.0.1-jre</guava.version>
+        <druid.version>1.2.8</druid.version>
+        <hutool.version>5.7.20</hutool.version>
+        <jjwt.version>0.9.1</jjwt.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--spring cloud 依赖-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--spring boot 依赖-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--spring cloud alibaba 依赖-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring.cloud.alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--springboot 集成 druid-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+                <!--<type>pom</type>-->
+                <!--<scope>import</scope>-->
+            </dependency>
+
+            <!--mysql-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--springboot集成mybatis-->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.springboot.starter.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--mybatis分页助手-->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper.springboot.starter.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--mybatis-plus工具（逆向工程、代码生成等）-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis.plus.version}</version>
+            </dependency>
+
+            <!--mybatis-plus通用mapper依赖-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis.plus.starter.version}</version>
+            </dependency>
+
+            <!--velocity 模板引擎-->
+            <dependency>
+                <groupId>org.apache.velocity</groupId>
+                <artifactId>velocity-engine-core</artifactId>
+                <version>${velocity.engine.version}</version>
+            </dependency>
+
+            <!--slf4j -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${log4j.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>${log4j.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--lombok-->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--swagger3相关依赖-->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-boot-starter</artifactId>
+                <version>${swagger3.version}</version>
+            </dependency>
+
+            <!--todo：网关建成后集成起来-->
+            <!--knife4j swagger3 ui 单体ui聚合-->
+            <dependency>
+                <groupId>com.github.shijingsh</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+            <!--knife4j swagger3 ui 微服务每个服务使用-->
+            <dependency>
+                <groupId>com.github.shijingsh</groupId>
+                <artifactId>knife4j-micro-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+            <!-- 更改spring-plugin-core版本，解决与swagger导包冲突问题 -->
+            <dependency>
+                <groupId>org.springframework.plugin</groupId>
+                <artifactId>spring-plugin-core</artifactId>
+                <version>${spring.plugin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.plugin</groupId>
+                <artifactId>spring-plugin-metadata</artifactId>
+                <version>${spring.plugin.version}</version>
+            </dependency>
+
+            <!--guava工具包-->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
+
+            <!-- 平台组件版本控制 -->
+            <dependency>
+                <groupId>cn.sq</groupId>
+                <artifactId>platform-common-core</artifactId>
+                <version>${platform.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.sq</groupId>
+                <artifactId>platform-db-starter</artifactId>
+                <version>${platform.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.sq</groupId>
+                <artifactId>platform-loadbalancer-starter</artifactId>
+                <version>${platform.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.sq</groupId>
+                <artifactId>platform-log-starter</artifactId>
+                <version>${platform.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.sq</groupId>
+                <artifactId>platform-mvc-starter</artifactId>
+                <version>${platform.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.sq</groupId>
+                <artifactId>platform-swagger3-starter</artifactId>
+                <version>${platform.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.sq</groupId>
+                <artifactId>platform-mybatisplus-generator</artifactId>
+                <version>${platform.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.sq</groupId>
+                <artifactId>platform-config-starter</artifactId>
+                <version>${platform.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.sq</groupId>
+                <artifactId>platform-elasticsearch-starter</artifactId>
+                <version>${platform.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.sq</groupId>
+                <artifactId>platform-redis-starter</artifactId>
+                <version>${platform.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.sq</groupId>
+                <artifactId>platform-sentinel-starter</artifactId>
+                <version>${platform.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.sq</groupId>
+                <artifactId>platform-zookeeper-starter</artifactId>
+                <version>${platform.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.sq</groupId>
+                <artifactId>platform-kafka-starter</artifactId>
+                <version>${platform.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.sq</groupId>
+                <artifactId>platform-rocket-starter</artifactId>
+                <version>${platform.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.sq</groupId>
+                <artifactId>platform-seata-starter</artifactId>
+                <version>${platform.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.sq</groupId>
+                <artifactId>platform-security</artifactId>
+                <version>${platform.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>

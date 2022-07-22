@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.sq.mall.mapper.PmsProductCategoryAttributeRelationMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.sq.mall.pojo.entity.PmsProductCategoryAttributeRelation">
+        <id column="id" property="id" />
+        <result column="product_category_id" property="productCategoryId" />
+        <result column="product_attribute_id" property="productAttributeId" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, product_category_id, product_attribute_id
+    </sql>
+
+    <insert id="insertAll">
+        insert into pms_product_category_attribute_relation (product_category_id, product_attribute_id)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.productCategoryId,jdbcType=BIGINT},#{item.productAttributeId,jdbcType=BIGINT})
+        </foreach>
+    </insert>
+</mapper>

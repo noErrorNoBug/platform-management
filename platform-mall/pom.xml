@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>platform-parent</artifactId>
+        <groupId>cn.sq</groupId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../platform-parent/pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>platform-mall</artifactId>
+    <name>platform-mall</name>
+    <description>商城业务载体(为了实现一些常用功能找的业务载体)</description>
+    <modules>
+        <module>mall-admin</module>
+        <module>mall-portal</module>
+        <module>mall-admin/mall-admin-gateway</module>
+        <module>mall-admin/mall-admin-cms</module>
+        <module>mall-admin/mall-admin-oms</module>
+        <module>mall-admin/mall-admin-pms</module>
+        <module>mall-admin/mall-admin-sms</module>
+        <module>mall-admin/mall-admin-ums</module>
+        <module>mall-portal/mall-portal-gateway</module>
+        <module>mall-portal/mall-protal-oms</module>
+        <module>mall-portal/mall-portal-pms</module>
+        <module>mall-portal/mall-portal-sms</module>
+        <module>mall-portal/mall-portal-ums</module>
+        <module>mall-portal/mall-portal-search</module>
+    </modules>
+    <packaging>pom</packaging>
+
+</project>

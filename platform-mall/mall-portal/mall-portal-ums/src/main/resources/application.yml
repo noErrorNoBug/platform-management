@@ -1,0 +1,9 @@
+server:
+  port: 15400
+spring:
+  application:
+    name: mall-portal-ums
+
+jwt:
+  tokenHeader: sadsa
+  tokenHead: ssss

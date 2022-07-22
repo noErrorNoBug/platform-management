@@ -1,0 +1,9 @@
+server:
+  port: 14500
+spring:
+  application:
+    name: mall-admin-ums
+
+jwt:
+  tokenHeader: sadsa
+  tokenHead: ssss

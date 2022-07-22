@@ -1,0 +1,5 @@
+server:
+  port: 14100
+spring:
+  application:
+    name: mall-admin-cms
